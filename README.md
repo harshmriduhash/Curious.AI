@@ -3,7 +3,7 @@
 
 # 🤖 curious.ai
 
-A powerful AI platform that combines conversation, code generation, and image generation capabilities using cutting-edge AI models. Visit: https://curiousai.vercel.app
+A powerful AI platform that combines conversation, code generation, and image generation capabilities using cutting-edge AI models. Visit: https://curious-ai-gold.vercel.app/
 
 ## ✨ Features
 
