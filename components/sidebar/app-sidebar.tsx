@@ -1,32 +1,29 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   Code,
   ImageIcon,
   LayoutDashboard,
   MessageSquare,
   ShoppingBag,
-} from "lucide-react"
+} from "lucide-react";
 
-import { NavMain } from "@/components/sidebar/nav-main"
-import { NavUser } from "@/components/sidebar/nav-user"
-import { TeamSwitcher } from "@/components/sidebar/team-switcher"
+import { NavMain } from "@/components/sidebar/nav-main";
+import { NavUser } from "@/components/sidebar/nav-user";
+import { TeamSwitcher } from "@/components/sidebar/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar"
-import { useEffect } from "react"
-import { useSession } from "next-auth/react"
-
-
+} from "@/components/ui/sidebar";
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-
-  const session = useSession()
+  const session = useSession();
   const data = {
     user: {
       name: session.data?.user?.name!,
@@ -39,7 +36,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         logo: Code,
         plan: "Enterprise",
       },
-
     ],
     navMain: [
       {
@@ -67,16 +63,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         title: "Marketplace",
         url: "/marketplace",
         icon: ShoppingBag,
-      }
+      },
     ],
-  }
+  };
 
   useEffect(() => {
     document.documentElement.classList.toggle(
       "dark",
       localStorage.theme === "Dark Theme" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
     );
   }, []);
 
@@ -93,5 +89,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
